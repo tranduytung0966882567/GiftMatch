@@ -61,31 +61,43 @@ const gifts = [
   {name:"Tai nghe Bluetooth 10",category:"Đồ trang trí",price:">1 triệu",receiver:"Đồng nghiệp"}
 ];
 
-// FILTER
-function filterGifts() {
-  const r = receiver.value;
-  const c = category.value;
-  const p = price.value;
+/* ================= FILTER ================= */
 
-  const list = gifts.filter(g =>
+function filterGifts() {
+  const r = document.getElementById("receiver").value;
+  const c = document.getElementById("category").value;
+  const p = document.getElementById("price").value;
+  const per = document.getElementById("personality").value;
+
+  const results = gifts.filter(g =>
     (!r || g.receiver === r) &&
     (!c || g.category === c) &&
-    (!p || g.price === p)
+    (!p || g.price === p) &&
+    (!per || g.personality === per)
   );
 
-  render(list.slice(0,5));
+  render(results.slice(0, 5));
 }
 
-function render(list){
+/* ================= RENDER ================= */
+
+function render(list) {
   const el = document.getElementById("results");
-  el.innerHTML = list.length ? "" : "<p>Không tìm thấy quà phù hợp 😢</p>";
-  list.forEach(g=>{
+  el.innerHTML = "";
+
+  if (!list.length) {
+    el.innerHTML = "<p>Không tìm thấy quà phù hợp 😢</p>";
+    return;
+  }
+
+  list.forEach(g => {
     el.innerHTML += `
       <div class="card">
         <h3>${g.name}</h3>
         <p>🎯 ${g.receiver}</p>
         <p>📦 ${g.category}</p>
         <p>💰 ${g.price}</p>
+        <p>💖 ${g.personality}</p>
       </div>
     `;
   });

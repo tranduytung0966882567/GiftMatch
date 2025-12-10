@@ -173,67 +173,51 @@ const gifts = [
   }))
 ];
 
-
-/* ===== IMAGE ===== */
-function getImage(name) {
-  return `https://source.unsplash.com/400x300/?gift,${encodeURIComponent(name)}`;
-}
-
-/* ===== FILTER ===== */
-function filterGifts() {
-  const receiver = normalize(document.getElementById("receiver")?.value);
-  const category = normalize(document.getElementById("category")?.value);
-  const price = normalize(document.getElementById("price")?.value);
-  const personality = normalize(document.getElementById("personality")?.value);
-
-  const filtered = gifts.filter(g => {
-    return (
-      (!receiver || normalize(g.receiver) === receiver) &&
-      (!category || normalize(g.category) === category) &&
-      (!price || normalize(g.price) === price) &&
-      (!personality || normalize(g.personality) === personality)
-    );
-  });
-
-  render(filtered.slice(0, 12));
-}
-
 /* ===== RENDER ===== */
-function render(list) {
+function renderGifts(list) {
   const container = document.getElementById("results");
-  if (!container) return;
-
   container.innerHTML = "";
 
-  if (!list.length) {
+  if (list.length === 0) {
     container.innerHTML = `
-      <p style="grid-column:1/-1;text-align:center;">
-        😢 Không tìm thấy quà phù hợp
+      <p style="grid-column:1/-1;text-align:center;color:#777">
+        Không tìm thấy món quà phù hợp 😢
       </p>`;
     return;
   }
 
-  list.forEach(g => {
-    const card = document.createElement("div");
-    card.className = "card";
-
-    card.innerHTML = `
-      <img src="${g.img || getImage(g.name)}"
-           alt="${g.name}"
-           onerror="this.src='https://via.placeholder.com/400x300?text=Gift'">
-
-      <h3>${g.name}</h3>
-      <p>🎯 ${g.receiver || "-"}</p>
-      <p>📦 ${g.category || "-"}</p>
-      <p>💰 ${g.price || "-"}</p>
-      <p>💖 ${g.personality || "Phù hợp mọi tính cách"}</p>
+  list.forEach(gift => {
+    container.innerHTML += `
+      <div class="card">
+        <img src="${gift.image}" alt="${gift.name}">
+        <h3>${gift.name}</h3>
+        <p>👤 ${gift.receiver}</p>
+        <p>🏷️ ${gift.category}</p>
+        <p>💰 ${gift.price}</p>
+        <p>✨ ${gift.personality}</p>
+      </div>
     `;
-
-    container.appendChild(card);
   });
 }
 
-/* ===== INIT ===== */
+/* ===== FILTER ===== */
+function filterGifts() {
+  const receiver = document.getElementById("receiver").value;
+  const category = document.getElementById("category").value;
+  const price = document.getElementById("price").value;
+  const personality = document.getElementById("personality").value;
+
+  const filtered = gifts.filter(gift =>
+    (!receiver || gift.receiver === receiver) &&
+    (!category || gift.category === category) &&
+    (!price || gift.price === price) &&
+    (!personality || gift.personality === personality)
+  );
+
+  renderGifts(filtered);
+}
+
+/* ✅ RENDER MẶC ĐỊNH KHI LOAD */
 document.addEventListener("DOMContentLoaded", () => {
-  render(gifts.slice(0, 12));
+  renderGifts(gifts);
 });

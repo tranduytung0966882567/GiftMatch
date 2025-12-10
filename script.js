@@ -174,49 +174,66 @@ const gifts = [
 ];
 
 
-// =======================
-// HÀM LỌC QUÀ
-// =======================
-
-function filterGifts() {
-  const r = document.getElementById("receiver").value;
-  const c = document.getElementById("category").value;
-  const p = document.getElementById("price").value;
-  const per = document.getElementById("personality").value;
-
-  const results = gifts.filter(g =>
-    (!r || g.receiver === r) &&
-    (!c || g.category === c) &&
-    (!p || g.price === p) &&
-    (!per || g.personality === per)
-  );
-
-  displayResults(results);
+/* ===== IMAGE ===== */
+function getImage(name) {
+  return `https://source.unsplash.com/400x300/?gift,${encodeURIComponent(name)}`;
 }
 
+/* ===== FILTER ===== */
+function filterGifts() {
+  const receiver = normalize(document.getElementById("receiver")?.value);
+  const category = normalize(document.getElementById("category")?.value);
+  const price = normalize(document.getElementById("price")?.value);
+  const personality = normalize(document.getElementById("personality")?.value);
 
-// =======================
-// HIỂN THỊ KẾT QUẢ
-// =======================
+  const filtered = gifts.filter(g => {
+    return (
+      (!receiver || normalize(g.receiver) === receiver) &&
+      (!category || normalize(g.category) === category) &&
+      (!price || normalize(g.price) === price) &&
+      (!personality || normalize(g.personality) === personality)
+    );
+  });
 
-function displayResults(list) {
-  const box = document.getElementById("results");
-  box.innerHTML = "";
+  render(filtered.slice(0, 12));
+}
 
-  if (list.length === 0) {
-    box.innerHTML = "<p style='grid-column:1/-1;text-align:center;'>Không tìm thấy gợi ý 😢</p>";
+/* ===== RENDER ===== */
+function render(list) {
+  const container = document.getElementById("results");
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  if (!list.length) {
+    container.innerHTML = `
+      <p style="grid-column:1/-1;text-align:center;">
+        😢 Không tìm thấy quà phù hợp
+      </p>`;
     return;
   }
 
-  list.forEach(item => {
-    box.innerHTML += `
-      <div class="card">
-        <img src="${item.img}" alt="${item.name}">
-        <h3>${item.name}</h3>
-        <p><b>Giá:</b> ${item.price}</p>
-        <p>${item.desc}</p>
-        <a href="${item.link}" target="_blank">Mua ngay</a>
-      </div>
+  list.forEach(g => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+      <img src="${g.img || getImage(g.name)}"
+           alt="${g.name}"
+           onerror="this.src='https://via.placeholder.com/400x300?text=Gift'">
+
+      <h3>${g.name}</h3>
+      <p>🎯 ${g.receiver || "-"}</p>
+      <p>📦 ${g.category || "-"}</p>
+      <p>💰 ${g.price || "-"}</p>
+      <p>💖 ${g.personality || "Phù hợp mọi tính cách"}</p>
     `;
+
+    container.appendChild(card);
   });
 }
+
+/* ===== INIT ===== */
+document.addEventListener("DOMContentLoaded", () => {
+  render(gifts.slice(0, 12));
+});

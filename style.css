@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff0f3;
+}
+
+header {
+  background: #ff4d6d;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero {
+  text-align: center;
+  padding: 40px;
+}
+
+.btn {
+  background: white;
+  color: #ff4d6d;
+  padding: 8px 18px;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.btn.primary {
+  background: #ff4d6d;
+  color: white;
+}
+
+.filter {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+select, button {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+button {
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+}
+
+.results {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #ffe5ec;
+}

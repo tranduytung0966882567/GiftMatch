@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>GiftMatch – Gợi ý quà thông minh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --pink: #f8c6cc;
+      --pink-dark: #f39aa6;
+      --bg: #fff6f8;
+      --text: #333;
+      --card: #ffffff;
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    header button {
+      background: var(--pink);
+      border: none;
+      padding: 10px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+
+    .hero h2 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin: 0 auto 24px;
+      opacity: 0.85;
+    }
+
+    .cta {
+      background: var(--pink-dark);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .filters {
+      max-width: 900px;
+      background: white;
+      margin: 0 auto;
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .filter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    select, .filter-btn {
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      font-size: 14px;
+    }
+
+    .filter-btn {
+      background: var(--pink);
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .results {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #e26b7a;
+      margin-bottom: 6px;
+    }
+
+    .card a {
+      margin-top: auto;
+      text-align: center;
+      padding: 10px;
+      border-radius: 999px;
+      background: var(--pink-dark);
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .bottom-cta {
+      background: #ffe9ed;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🎁 GiftMatch</h1>
+  <button onclick="scrollToFilters()">Bắt đầu</button>
+</header>
+
+<section class="hero">
+  <h2>Đau đầu khi không biết tặng gì?</h2>
+  <p>
+    Gợi ý quà cực hợp – cực xịn cho từng người, từng dịp, từng vibe.
+    Chỉ cần vài cú click!
+  </p>
+  <button class="cta" onclick="scrollToFilters()">Tìm quà ngay</button>
+</section>
+
+<section class="filters" id="filters">
+  <div class="filter-grid">
+    <select id="receiver">
+      <option value="">Người nhận</option>
+      <option>Bạn gái</option>
+      <option>Bạn trai</option>
+      <option>Mẹ</option>
+      <option>Bạn bè</option>
+    </select>
+
+    <select id="occasion">
+      <option value="">Dịp</option>
+      <option>Sinh nhật</option>
+      <option>Kỷ niệm</option>
+      <option>Lễ</option>
+    </select>
+
+    <select id="personality">
+      <option value="">Tính cách</option>
+      <option>Lãng mạn</option>
+      <option>Thực tế</option>
+      <option>Dễ thương</option>
+      <option>Tình cảm</option>
+    </select>
+
+    <button class="filter-btn" onclick="filterGifts()">Gợi ý ngay</button>
+  </div>
+</section>
+
+<section class="results">
+  <h3>Danh sách quà gợi ý</h3>
+  <div class="cards" id="cards"></div>
+</section>
+
+<section class="bottom-cta">
+  <h3>Bạn còn phân vân?</h3>
+  <p>Xem thêm những gợi ý phù hợp hơn cho bạn</p>
+  <button class="cta" onclick="filterGifts()">Xem gợi ý ngay</button>
+</section>
+
+<footer>
+  © 2025 GiftMatch · contact@giftmatch.com
+</footer>
+
+<script>
+/* ===== DỮ LIỆU QUÀ (CÓ THỂ THAY = 100 MÓN TỪ EXCEL) ===== */
+const gifts = [
+  {
+    name: "Nến thơm handmade",
+    price: "150k–300k",
+    desc: "Hương nhẹ nhàng, thư giãn",
+    receiver: "Bạn gái",
+    occasion: "Sinh nhật",
+    personality: "Lãng mạn",
+    img: "https://images.unsplash.com/photo-1603006905003-be475563bc59",
+    link: "#"
+  },
+  {
+    name: "Gấu bông",
+    price: "200k–400k",
+    desc: "Dễ thương, ôm ngủ",
+    receiver: "Bạn gái",
+    occasion: "Kỷ niệm",
+    personality: "Dễ thương",
+    img: "https://images.unsplash.com/photo-1558888401-3cc1de77652d",
+    link: "#"
+  },
+  {
+    name: "Ví da nam",
+    price: "400k–800k",
+    desc: "Gọn gàng, sang trọng",
+    receiver: "Bạn trai",
+    occasion: "Sinh nhật",
+    personality: "Thực tế",
+    img: "https://images.unsplash.com/photo-1600180758890-6b94519a8ba6",
+    link: "#"
+  },
+  {
+    name: "Tumbler giữ nhiệt",
+    price: "250k–500k",
+    desc: "Dùng hằng ngày",
+    receiver: "Bạn bè",
+    occasion: "Sinh nhật",
+    personality: "Thực tế",
+    img: "https://images.unsplash.com/photo-1585238342028-4d8a1d85b2cc",
+    link: "#"
+  },
+  {
+    name: "Khung ảnh để bàn",
+    price: "150k–250k",
+    desc: "Lưu giữ kỷ niệm",
+    receiver: "Mẹ",
+    occasion: "Lễ",
+    personality: "Tình cảm",
+    img: "https://images.unsplash.com/photo-1504198453319-5ce911bafcde",
+    link: "#"
+  }
+];
+
+/* ===== LOGIC FILTER ===== */
+function filterGifts() {
+  const receiver = document.getElementById("receiver").value;
+  const occasion = document.getElementById("occasion").value;
+  const personality = document.getElementById("personality").value;
+
+  const cards = document.getElementById("cards");
+  cards.innerHTML = "";
+
+  const result = gifts.filter(g =>
+    (!receiver || g.receiver === receiver) &&
+    (!occasion || g.occasion === occasion) &&
+    (!personality || g.personality === personality)
+  );
+
+  if (result.length === 0) {
+    cards.innerHTML = "<p>😢 Không tìm thấy quà phù hợp. Thử chọn khác nhé!</p>";
+    return;
+  }
+
+  result.slice(0, 5).forEach(gift => {
+    cards.innerHTML += `
+      <div class="card">
+        <img src="${gift.img}">
+        <h4>${gift.name}</h4>
+        <div class="price">${gift.price}</div>
+        <p>${gift.desc}</p>
+        <a href="${gift.link}" target="_blank">Xem & mua</a>
+      </div>
+    `;
+  });
+}
+
+function scrollToFilters() {
+  document.getElementById("filters").scrollIntoView({ behavior: "smooth" });
+}
+</script>
+
+</body>
+</html>

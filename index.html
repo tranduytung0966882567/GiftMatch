@@ -1,3 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GiftMatch – Chọn quà dễ như 1 click</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fff5f6;
+      color: #333;
+    }
+
+    header {
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 22px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .hero button {
+      background: #f05a6e;
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      font-size: 16px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      padding: 30px 20px;
+      background: #fff;
+      border-radius: 20px;
+      margin: 0 auto;
+      max-width: 1100px;
+    }
+
+    select, .filter button {
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid #ddd;
+      font-size: 15px;
+      min-width: 170px;
+    }
+
+    .filter button {
+      background: #f05a6e;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    #results {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+      transition: transform .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin: 8px 0;
+      font-size: 18px;
+    }
+
+    .card p {
+      margin: 4px 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🎁 GiftMatch</h1>
+</header>
+
+<section class="hero">
+  <h2>Đau đầu khi không biết tặng gì?</h2>
+  <p>Gợi ý quà cực hợp – chỉ cần vài cú click ✨</p>
+  <button onclick="document.getElementById('filter').scrollIntoView({behavior:'smooth'})">
+    Tìm quà ngay
+  </button>
+</section>
+
+<!-- FILTER -->
 <section id="filter" class="filter">
   <select id="receiver">
     <option value="">Người nhận</option>
@@ -31,13 +174,24 @@
 
   <select id="personality">
     <option value="">Tính cách</option>
-    <option>Năng động</option>
     <option>Lãng mạn</option>
     <option>Thực tế</option>
     <option>Sáng tạo</option>
+    <option>Năng động</option>
     <option>Nhẹ nhàng</option>
     <option>Công nghệ</option>
   </select>
 
   <button onclick="filterGifts()">Gợi ý ngay</button>
 </section>
+
+<!-- RESULTS -->
+<section id="results"></section>
+
+<footer>
+  © 2025 GiftMatch • contact@giftmatch.vn
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -11,16 +11,16 @@
 const IMAGE =
 "https://cdn-jidif.nitrocdn.com/wCwGAAqIRuzTlLHXLfIRIHwpuTczfvVQ/assets/images/optimized/rev-46c7a40/i0.wp.com/www.thank-you-note-samples.com/wp-content/uploads/2019/12/171e51e3cefe0c5637c3abfda5b98ca6.anniversary-birthday-blue-bow-264787.jpg";
 const gifts = [
-  {name:"Tai nghe Bluetooth", category:"Đồ tiện ích", price:">1 triệu", receiver:"Người lớn tuổi", personality:"Công nghệ", img:IMAGE, link: "https://shopee.vn/"},
-  {name:"Sổ tay da", category:"Đồ tiện ích", price:">1 triệu", receiver:"Gia đình", personality:"Thực tế", img:IMAGE, link: "https://shopee.vn/"},
-  {name:"Nến thơm cao cấp", category:"Sức khỏe", price:"200k-500k", receiver:"Người lớn tuổi", personality:"Nhẹ nhàng", img:IMAGE, link: "https://shopee.vn/"},
-  {name:"Bộ skincare mini", category:"Sức khỏe", price:">1 triệu", receiver:"Người lớn tuổi", personality:"Nhẹ nhàng", img:IMAGE, link: "https://shopee.vn/"},
-  {name:"Áo hoodie basic", category:"Đồ ăn/uống", price:"<200k", receiver:"Gia đình", personality:"Năng động", img:IMAGE, link: "https://shopee.vn/"},
-  {name:"Bình giữ nhiệt", category:"Thời trang", price:"500k-1 triệu", receiver:"Người yêu", personality:"Thực tế", img:IMAGE, link: "https://shopee.vn/"},
-  {name:"Cốc in hình tuỳ chọn", category:"Công nghệ", price:"500k-1 triệu", receiver:"Đồng nghiệp", personality:"Sáng tạo", img:IMAGE, link: "https://shopee.vn/"},
-  {name:"Mô hình lắp ráp", category:"Công nghệ", price:"<200k", receiver:"Bạn bè", personality:"Sáng tạo", img:IMAGE,link: "https://shopee.vn/"},
-  {name:"Hộp quà socola", category:"Giáo dục", price:"<200k", receiver:"Bạn bè", personality:"Lãng mạn", img:IMAGE, link: "https://shopee.vn/"},
-  {name:"Voucher ăn uống", category:"Sở thích", price:">1 triệu", receiver:"Đồng nghiệp", personality:"Năng động", img:IMAGE, link: "https://shopee.vn/"},
+  {name:"Tai nghe Bluetooth", category:"Đồ tiện ích", price:">1 triệu", receiver:"Người lớn tuổi", personality:"Công nghệ", img:IMAGE},
+  {name:"Sổ tay da", category:"Đồ tiện ích", price:">1 triệu", receiver:"Gia đình", personality:"Thực tế", img:IMAGE},
+  {name:"Nến thơm cao cấp", category:"Sức khỏe", price:"200k-500k", receiver:"Người lớn tuổi", personality:"Nhẹ nhàng", img:IMAGE},
+  {name:"Bộ skincare mini", category:"Sức khỏe", price:">1 triệu", receiver:"Người lớn tuổi", personality:"Nhẹ nhàng", img:IMAGE},
+  {name:"Áo hoodie basic", category:"Đồ ăn/uống", price:"<200k", receiver:"Gia đình", personality:"Năng động", img:IMAGE},
+  {name:"Bình giữ nhiệt", category:"Thời trang", price:"500k-1 triệu", receiver:"Người yêu", personality:"Thực tế", img:IMAGE},
+  {name:"Cốc in hình tuỳ chọn", category:"Công nghệ", price:"500k-1 triệu", receiver:"Đồng nghiệp", personality:"Sáng tạo", img:IMAGE},
+  {name:"Mô hình lắp ráp", category:"Công nghệ", price:"<200k", receiver:"Bạn bè", personality:"Sáng tạo", img:IMAGE},
+  {name:"Hộp quà socola", category:"Giáo dục", price:"<200k", receiver:"Bạn bè", personality:"Lãng mạn", img:IMAGE},
+  {name:"Voucher ăn uống", category:"Sở thích", price:">1 triệu", receiver:"Đồng nghiệp", personality:"Năng động", img:IMAGE},
 
   {name:"Sách truyền cảm hứng", category:"Sở thích", price:"<200k", receiver:"Người yêu", personality:"Nhẹ nhàng", img:IMAGE},
   {name:"Chuột không dây", category:"Công nghệ", price:"200k-500k", receiver:"Gia đình", personality:"Công nghệ", img:IMAGE},

@@ -87,23 +87,23 @@ const gifts = [
   {name:"Bình giữ nhiệt", category:"Công nghệ", price:">1 triệu", receiver:"Gia đình", personality:"Thực tế", img:IMAGE},
   {name:"Voucher ăn uống", category:"Đồ ăn/uống", price:">1 triệu", receiver:"Người yêu", personality:"Năng động", img:IMAGE},
 
-  {name:"Bộ dụng cụ vẽ 95", category:"Sở thích", price:"<200k", receiver:"Bạn bè", personality:"Sáng tạo", img:IMAGE},
-  {name:"Gối ôm plushy 89", category:"Đồ ăn/uống", price:"500k-1 triệu", receiver:"Gia đình", personality:"Lãng mạn", img:IMAGE},
-  {name:"Túi tote vải 12", category:"Sở thích", price:">1 triệu", receiver:"Trẻ em", personality:"Năng động", img:IMAGE},
-  {name:"Bộ dụng cụ vẽ 50", category:"Sở thích", price:">1 triệu", receiver:"Trẻ em", personality:"Sáng tạo", img:IMAGE},
-  {name:"Gối ôm plushy 23", category:"Đồ tiện ích", price:"200k-500k", receiver:"Đồng nghiệp", personality:"Lãng mạn", img:IMAGE},
+  {name:"Bộ dụng cụ vẽ", category:"Sở thích", price:"<200k", receiver:"Bạn bè", personality:"Sáng tạo", img:IMAGE},
+  {name:"Gối ôm plushy", category:"Đồ ăn/uống", price:"500k-1 triệu", receiver:"Gia đình", personality:"Lãng mạn", img:IMAGE},
+  {name:"Túi tote vải", category:"Sở thích", price:">1 triệu", receiver:"Trẻ em", personality:"Năng động", img:IMAGE},
+  {name:"Bộ dụng cụ vẽ", category:"Sở thích", price:">1 triệu", receiver:"Trẻ em", personality:"Sáng tạo", img:IMAGE},
+  {name:"Gối ôm plushy", category:"Đồ tiện ích", price:"200k-500k", receiver:"Đồng nghiệp", personality:"Lãng mạn", img:IMAGE},
 
-  {name:"Bàn phím cơ mini 90", category:"Sở thích", price:"200k-500k", receiver:"Gia đình", personality:"Công nghệ", img:IMAGE},
-  {name:"Cốc in hình tuỳ chọn 44", category:"Đồ tiện ích", price:"200k-500k", receiver:"Đồng nghiệp", personality:"Sáng tạo", img:IMAGE},
-  {name:"Cốc in hình tuỳ chọn 59", category:"Sức khỏe", price:">1 triệu", receiver:"Trẻ em", personality:"Sáng tạo", img:IMAGE},
-  {name:"Hộp nhạc gỗ 71", category:"Đồ ăn/uống", price:"200k-500k", receiver:"Người yêu", personality:"Lãng mạn", img:IMAGE},
-  {name:"Gối ôm plushy 34", category:"Công nghệ", price:"500k-1 triệu", receiver:"Bạn bè", personality:"Lãng mạn", img:IMAGE},
+  {name:"Bàn phím cơ mini", category:"Sở thích", price:"200k-500k", receiver:"Gia đình", personality:"Công nghệ", img:IMAGE},
+  {name:"Cốc in hình tuỳ chọn", category:"Đồ tiện ích", price:"200k-500k", receiver:"Đồng nghiệp", personality:"Sáng tạo", img:IMAGE},
+  {name:"Cốc in hình tuỳ chọn", category:"Sức khỏe", price:">1 triệu", receiver:"Trẻ em", personality:"Sáng tạo", img:IMAGE},
+  {name:"Hộp nhạc gỗ", category:"Đồ ăn/uống", price:"200k-500k", receiver:"Người yêu", personality:"Lãng mạn", img:IMAGE},
+  {name:"Gối ôm plushy", category:"Công nghệ", price:"500k-1 triệu", receiver:"Bạn bè", personality:"Lãng mạn", img:IMAGE},
 
-  {name:"Hộp quà socola 75", category:"Giáo dục", price:"200k-500k", receiver:"Người lớn tuổi", personality:"Lãng mạn", img:IMAGE},
-  {name:"Túi tote vải 31", category:"Công nghệ", price:"500k-1 triệu", receiver:"Bạn bè", personality:"Năng động", img:IMAGE},
-  {name:"Áo hoodie basic 44", category:"Đồ trang trí", price:"500k-1 triệu", receiver:"Người lớn tuổi", personality:"Năng động", img:IMAGE},
-  {name:"Sổ tay da 22", category:"Đồ tiện ích", price:"200k-500k", receiver:"Người yêu", personality:"Thực tế", img:IMAGE},
-  {name:"Chuột không dây 41", category:"Sở thích", price:"200k-500k", receiver:"Gia đình", personality:"Công nghệ", img:IMAGE},
+  {name:"Hộp quà socola", category:"Giáo dục", price:"200k-500k", receiver:"Người lớn tuổi", personality:"Lãng mạn", img:IMAGE},
+  {name:"Túi tote vải", category:"Công nghệ", price:"500k-1 triệu", receiver:"Bạn bè", personality:"Năng động", img:IMAGE},
+  {name:"Áo hoodie basic", category:"Đồ trang trí", price:"500k-1 triệu", receiver:"Người lớn tuổi", personality:"Năng động", img:IMAGE},
+  {name:"Sổ tay da", category:"Đồ tiện ích", price:"200k-500k", receiver:"Người yêu", personality:"Thực tế", img:IMAGE},
+  {name:"Chuột không dây", category:"Sở thích", price:"200k-500k", receiver:"Gia đình", personality:"Công nghệ", img:IMAGE},
 ];
 
 /* ---------- helper: normalize user & data values ---------- */
